@@ -8,19 +8,14 @@ from price.models import PriceCard, PriceTable
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     price_table = PriceTable.objects.all()
+    price_cards = PriceCard.objects.all()
     form = OrderForms()
-    pc_1 = PriceCard.objects.get(pk=1)
-    pc_2 = PriceCard.objects.get(pk=2)
-    pc_3 = PriceCard.objects.get(pk=3)
-    pc_4 = PriceCard.objects.get(pk=4)
-    dict1 = {'slider_list': slider_list,
-             'price_table': price_table,
-             'pc_1': pc_1,
-             'pc_2': pc_2,
-             'pc_3': pc_3,
-             'pc_4': pc_4,
-             'form': form}
-    return render(request, 'index.html', dict1)
+
+    context = {'slider_list': slider_list,
+               'price_table': price_table,
+               'price_cards': price_cards,
+               'form': form}
+    return render(request, 'index.html', context)
 
 
 def thanks_page(request):

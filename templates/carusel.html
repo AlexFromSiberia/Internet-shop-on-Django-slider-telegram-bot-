@@ -1,6 +1,5 @@
 {% load static %}
 
-<!-- карусель -->
 <section>
     <div id="carouselExampleCaptions" class="carousel slide container" data-ride="carousel">
         <div class="carousel-inner">
@@ -8,7 +7,7 @@
             <div class="carousel-item {{ slide.cms_css }}">
 
                 <!-- if - чтобы избежать ошибки если картинки НЕТ	-->
-                {% if item.photo%}
+                {% if slide.cms_img %}
                 <!-- здесь нам нужен не сам обьект а только путь до него	-->
                 <img src=" {{ slide.cms_img.url }} " class="d-block w-100" alt="...">
                 {% endif %}
