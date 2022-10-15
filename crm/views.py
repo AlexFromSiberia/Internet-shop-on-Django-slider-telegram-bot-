@@ -20,7 +20,7 @@ def first_page(request):
              'pc_3': pc_3,
              'pc_4': pc_4,
              'form': form}
-    return render(request, './index.html', dict1)
+    return render(request, 'index.html', dict1)
 
 
 def thanks_page(request):
@@ -28,4 +28,4 @@ def thanks_page(request):
     phone = request.POST['phone']
     data = Order(order_name=name, order_phone=phone)
     data.save()
-    return render(request, './thanks_page.html', {'name': name})
+    return render(request, 'thanks.html', {'name': name})
