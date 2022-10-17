@@ -3,6 +3,7 @@ from .models import Order
 from .forms import OrderForms
 from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
+from telebot.sendmessage import send_telegram
 
 
 def first_page(request):
@@ -23,4 +24,6 @@ def thanks_page(request):
     phone = request.POST['phone']
     data = Order(order_name=name, order_phone=phone)
     data.save()
+    # Имя и Тел мы передадим в send_telegram во время обработки POST запроса
+    send_telegram(tg_name = name, tg_phone = phone)
     return render(request, 'thanks.html', {'name': name})
