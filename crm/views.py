@@ -20,10 +20,13 @@ def first_page(request):
 
 
 def thanks_page(request):
-    name = request.POST['name']
-    phone = request.POST['phone']
-    data = Order(order_name=name, order_phone=phone)
-    data.save()
-    # Имя и Тел мы передадим в send_telegram во время обработки POST запроса
-    send_telegram(tg_name = name, tg_phone = phone)
-    return render(request, 'thanks.html', {'name': name})
+    if request.POST:
+        name = request.POST['name']
+        phone = request.POST['phone']
+        data = Order(order_name=name, order_phone=phone)
+        data.save()
+        # Имя и Тел мы передадим в send_telegram во время обработки POST запроса
+        send_telegram(tg_name = name, tg_phone = phone)
+        return render(request, 'thanks.html', {'name': name})
+    else:
+        return render(request, 'thanks.html')
