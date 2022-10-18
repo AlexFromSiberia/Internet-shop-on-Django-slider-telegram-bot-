@@ -1,0 +1,19 @@
+body {
+    background: #bcd3f76e;
+ }
+
+h1 {
+    color: #000;
+}
+
+#header {
+background: #036;
+}
+
+#branding {
+    width: 90%;
+}
+
+#site-name {
+    float: right;
+}
