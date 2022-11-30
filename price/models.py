@@ -20,7 +20,7 @@ class PriceTable(models.Model):
     pt_old_price = models.CharField(max_length=200, verbose_name='Старая Цена')
     pt_new_price = models.CharField(max_length=200, verbose_name='Новая Цена')
 
-    # строковое представление обьекта
+    # строковое представление объекта
     def __str__(self):
         return self.pt_title
 

@@ -2,13 +2,14 @@ import requests
 from .models import Telesettings
 
 
-# так через url запрос с помощью api Telegram можно отправлять
-# сообщения ботом
-# url = f'https://api.telegram.org/bot{token}{api_method}?chat_id={id}&text={text}'
-# text = 'testing message'
-# chat_id = '-856774933'
-# token = '5709386163:AAFhyB5bgrCZQ5khKZZvCoVJY5zZhw4unXI'
-# api_method = '/sendMessage'
+"""
+через url запрос с помощью api Telegram можно отправлять сообщения ботом
+url = f'https://api.telegram.org/bot{token}{api_method}?chat_id={id}&text={text}'
+text = 'testing message'
+chat_id = '-856774933'
+token = '5709386163:AAFhyB5bgrCZQ5khKZZvCoVJY5zZhw4unXI'
+api_method = '/sendMessage'
+"""
 
 
 def send_telegram(tg_name, tg_phone):
@@ -29,7 +30,7 @@ def send_telegram(tg_name, tg_phone):
         # Имя и Тел мы передадим из Views во время обработки POST запроса
 
         if text.find('{') and text.find('}') and text.rfind('{') and text.rfind('}'):
-            # текст который нарезаем : Заявка с сайта. Имя {Name} Телефон {Phone}
+            # текст, который нарезаем: Заявка с сайта. Имя {Name} Телефон {Phone}
             a = text.find('{')
             b = text.find('}')
             c = text.rfind('{')
